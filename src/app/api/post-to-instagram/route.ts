@@ -6,6 +6,7 @@ import { postImage } from "~/server/api/instagram";
 
 const handler = async (req: NextRequest) => {
   try {
+    console.log("This is the request", req, req.headers, req.body, req.url, req.method, req.cookies, req.url)
     const postImageRes = await postImage();
     if (postImageRes.status === 'ok') {
       return new NextResponse('Posted to Instagram', { status: 200 });
