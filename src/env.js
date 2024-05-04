@@ -25,6 +25,7 @@ export const env = createEnv({
     DISCORD_CLIENT_SECRET: z.string().optional(),
     IG_USERNAME: z.string(),
     IG_PASSWORD: z.string(),
+    CRON_SECRET: z.string(),
   },
 
   /**
@@ -48,6 +49,7 @@ export const env = createEnv({
     DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
     IG_USERNAME: process.env.IG_USERNAME,
     IG_PASSWORD: process.env.IG_PASSWORD,
+    CRON_SECRET: process.env.CRON_SECRET,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

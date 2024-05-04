@@ -1,9 +1,13 @@
 
 import { type NextRequest, type NextResponse } from "next/server";
+import { env } from "~/env";
 import { postImage } from "~/server/api/instagram";
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
   try {
+    if (req.headers.get('Authorization') !== `Bearer ${env.CRON_SECRET}`) {
+      return new Response('Unauthorized', { status: 401 });
+    }
     const postImageRes = await postImage();
     if (postImageRes.status === 'ok') {
       return new Response('Posted to Instagram', { status: 200 });
