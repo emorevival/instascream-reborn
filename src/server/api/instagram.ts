@@ -11,6 +11,8 @@ export const postImage = async () => {
 
     console.log("OH MY GOD IS THE URL WRONG...", `${getBaseUrl()}/api/image`)
 
+    console.log("yes...... it is wrong........", env.NODE_ENV, env.VERCEL_ENV);
+
     const imageBuffer = await get({
       url: `${getBaseUrl()}/api/image`,
       encoding: null,
