@@ -1,7 +1,8 @@
-import { type NextApiRequest, type NextApiResponse } from "next";
+
+import { type NextRequest, type NextResponse } from "next/server";
 import { postImage } from "~/server/api/instagram";
 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async (req: NextRequest, res: NextResponse) => {
   try {
     const postImageRes = await postImage();
     if (postImageRes.status === 'ok') {
