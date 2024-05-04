@@ -1,13 +1,14 @@
 
-import { type NextRequest, type NextResponse } from "next/server";
-import { env } from "~/env";
+import { verifySignature } from "@upstash/qstash/nextjs";
+import { type NextApiRequest, type NextApiResponse } from "next/types";
+// import { env } from "~/env";
 import { postImage } from "~/server/api/instagram";
 
-export const GET = async (req: NextRequest, res: NextResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    if (req.headers.get('Authorization') !== `Bearer ${env.CRON_SECRET}`) {
-      return new Response('Unauthorized', { status: 401 });
-    }
+    // if (req.headers.authorization !== `Bearer ${env.CRON_SECRET}`) {
+    //   return new Response('Unauthorized', { status: 401 });
+    // }
     const postImageRes = await postImage();
     if (postImageRes.status === 'ok') {
       return new Response('Posted to Instagram', { status: 200 });
@@ -21,3 +22,11 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
     return new Response(`There has been an error posting to Instagram.\nThe error is: ${message}`, { status: 500 });
   }
 }
+
+export const GET = verifySignature(handler);
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};

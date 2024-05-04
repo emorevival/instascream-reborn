@@ -26,6 +26,8 @@ export const env = createEnv({
     IG_USERNAME: z.string(),
     IG_PASSWORD: z.string(),
     CRON_SECRET: z.string(),
+    QSTASH_CURRENT_SIGNING_KEY: z.string(),
+    QSTASH_NEXT_SIGNING_KEY: z.string(),
   },
 
   /**
@@ -50,6 +52,8 @@ export const env = createEnv({
     IG_USERNAME: process.env.IG_USERNAME,
     IG_PASSWORD: process.env.IG_PASSWORD,
     CRON_SECRET: process.env.CRON_SECRET,
+    QSTASH_CURRENT_SIGNING_KEY: process.env.QSTASH_CURRENT_SIGNING_KEY,
+    QSTASH_NEXT_SIGNING_KEY: process.env.QSTASH_NEXT_SIGNING_KEY,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
