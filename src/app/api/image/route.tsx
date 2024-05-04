@@ -26,12 +26,6 @@ const generateText = () => {
   const numA = randomInt(1, A_MAX);
   const numH = randomInt(1, Math.floor(((NUM_OF_LINES * IMAGE_WIDTH) - (A_WIDTH * numA)) / H_WIDTH));
 
-  console.log("AAAAA: ", numA);
-  console.log("HHHHH: ", numH);
-
-  console.log("number of As: ", numA);
-  console.log("max number of Hs: ", Math.floor(((NUM_OF_LINES * IMAGE_WIDTH) - (A_WIDTH * numA)) / H_WIDTH));
-
   return "A".repeat(numA) + "H".repeat(numH);
 }
 
