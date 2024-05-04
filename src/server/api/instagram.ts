@@ -9,6 +9,8 @@ export const postImage = async () => {
     ig.state.generateDevice(env.IG_USERNAME);
     await ig.account.login(env.IG_USERNAME, env.IG_PASSWORD);
 
+    console.log("OH MY GOD IS THE URL WRONG...", `${getBaseUrl()}/api/image`)
+
     const imageBuffer = await get({
       url: `${getBaseUrl()}/api/image`,
       encoding: null,
