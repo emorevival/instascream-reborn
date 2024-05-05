@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { unstable_noStore as noStore } from 'next/cache';
+import { cookies } from 'next/headers';
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
@@ -32,7 +32,7 @@ const generateText = () => {
 }
 
 export const GET = async () => {
-  noStore();
+  const _cookies = cookies()
   try {
     const fontData = await fetch(
       new URL('../../../../public/fonts/comicsans.ttf', import.meta.url)
