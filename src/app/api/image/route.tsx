@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import { unstable_noStore as noStore } from 'next/cache';
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const dynamic = 'force-dynamic'
 
 const IMAGE_WIDTH = 1080;
 const NUM_OF_LINES = 15;
@@ -32,6 +32,7 @@ const generateText = () => {
 }
 
 export const GET = async () => {
+  noStore();
   try {
     const fontData = await fetch(
       new URL('../../../../public/fonts/comicsans.ttf', import.meta.url)
