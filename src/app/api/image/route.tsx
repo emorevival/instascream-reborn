@@ -2,6 +2,8 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
+export const revalidate = 0
+
 
 const IMAGE_WIDTH = 1080;
 const NUM_OF_LINES = 15;
